@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Totally Normal Website</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #121212;
+            color: white;
+            font-family: 'Comic Sans MS', cursive; /* The official font of trolling */
+            overflow: hidden;
+        }
+
+        #troll-image {
+            display: none; /* Hidden at first */
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            background-color: #00ff00;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            position: absolute; /* Required for it to move */
+            transition: 0.1s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="heading">Click the green button to win $1,000!</h1>
+    <img id="troll-image" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJwamZ3bm9sZzByY2Z3dzJqZzRyeGZ3ZzJqZzRyeGZ3ZzJqZzRyeGZ3JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZChars&rid=giphy.gif" alt="Troll Face">
+    
+    <button id="runaway-btn">CLAIM PRIZE</button>
+
+    <script>
+        const btn = document.getElementById('runaway-btn');
+        const heading = document.getElementById('heading');
+        const img = document.getElementById('troll-image');
+
+        // This makes the button jump away when the mouse gets close
+        btn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - btn.clientWidth);
+            const y = Math.random() * (window.innerHeight - btn.clientHeight);
+            
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        });
+
+        // If they actually manage to click it (it's hard!)
+        btn.addEventListener('click', () => {
+            heading.innerText = "YOU GOT TROLLED LMAO";
+            img.style.display = "block";
+            btn.style.display = "none";
+            document.body.style.backgroundColor = "yellow";
+            document.body.style.color = "black";
+        });
+    </script>
+</body>
+</html>
